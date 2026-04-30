@@ -1,4 +1,4 @@
---Find the top-selling books in each genre for BookCycle's Univerity store location.
+--Find the top 3 best-selling books in each genre for BookCycle's Univerity store location.
 WITH sales_by_book AS (
     SELECT book_id, SUM(sale_price) AS total_sales
     FROM transactions
