@@ -16,13 +16,13 @@ FROM ranked_books
 WHERE rank <= 3
 ORDER BY total_sales DESC;
 
---Find the high-value customers and their number of purchases.
+--Find high-value, repeat customers and the total amount spent on BookCycle stores.
 SELECT c.customer_id, 
     COUNT(t.transaction_id) AS purchase_count, 
-    SUM(t.sale_price) as total_spent
+    SUM(t.sale_price) AS total_spent
 FROM customers c
 JOIN transactions t ON c.customer_id = t.customer_id
 GROUP BY c.customer_id
-HAVING COUNT(t.transaction_id) > 5
+HAVING COUNT(t.transaction_id) > 2
 ORDER BY total_spent DESC
 );
