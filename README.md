@@ -1,7 +1,7 @@
 # SQL Projects Portfolio
 This repository provides a sample of some data analysis work I completed using SQL, both from personal and educational outputs.
 ## [BookCycle's Books and Transactions](docs/BookCycle_Analytics_Project)
-*Analyze sales data from a used-books company called BookCycle.*
+###Project 1: Analyze sales data from a used-books company called BookCycle.
 
 Objective | Dataset Source | Key Questions Answered | SQL Skills Used | Topic |
 --------- | ------- | ---------------------- | --------------- | ----- |
