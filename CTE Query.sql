@@ -12,5 +12,5 @@ ranked_books AS (
 )
 SELECT genre, title, total_sales, rank
 FROM ranked_books
-WHERE rank = 1
+WHERE rank <= 3
 ORDER BY total_sales DESC;
