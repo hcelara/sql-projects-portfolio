@@ -16,14 +16,13 @@ FROM ranked_books
 WHERE rank <= 3
 ORDER BY total_sales DESC;
 
---Find the customers who have made purchases above the average order value.
-SELECT *
-FROM customers 
-WHERE customer_id IN ( 
-    SELECT customer_id 
-    FROM transactions 
-    GROUP BY customer_id 
-    HAVING SUM(sale_price) > (
-        SELECT AVG(sale_price) 
-        FROM transactions) 
-    );
+--Find the high-value customers and their number of purchases.
+SELECT c.customer_id, 
+    COUNT(t.transaction_id) AS purchase_count, 
+    SUM(t.sale_price) as total_spent
+FROM customers c
+JOIN transactions t ON c.customer_id = t.customer_id
+GROUP BY c.customer_id
+HAVING COUNT(t.transaction_id) > 5
+ORDER BY total_spent DESC
+);
